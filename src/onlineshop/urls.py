@@ -20,11 +20,17 @@ from django.urls import path,include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 admin_urlpatterns =[
-    path('api/admin/users/',include(('onlineshop.auths.users.urls.admin','onlineshop.auths.users'),namespace='admin-login')),
+    path('api/admin/users/',include(('onlineshop.auths.users.urls.admin','onlineshop.auths.users'),
+                                    namespace='admin-login')),
+    path('api/admin/catalogue/',include(('onlineshop.apps.catalogue.urls.admin','onlineshop.apps.catalogue'),
+                                        namespace='admin-category')),
 ]
 
 front_urlpatterns = [
-    path('api/front/users/',include(('onlineshop.auths.users.urls.front','onlineshop.auths.users'),namespace='front-login')),
+    path('api/front/users/',include(('onlineshop.auths.users.urls.front','onlineshop.auths.users'),
+                                    namespace='front-login')),
+    path('api/front/catalogue/',include(('onlineshop.apps.catalogue.urls.front','onlineshop.apps.catalogue'),
+                                        namespace='front-catalogue')),
 ]
 
 doc_urlpatterns =[

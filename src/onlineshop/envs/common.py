@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'onlineshop.auths.users',
+    'onlineshop.apps.catalogue',
+    'onlineshop.apps.media',
+    'onlineshop.apps.inventory',
 ]
 
 MIDDLEWARE = [

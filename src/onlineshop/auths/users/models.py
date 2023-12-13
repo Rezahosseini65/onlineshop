@@ -21,12 +21,6 @@ class MyUser(AbstractUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,related_name='users',on_delete=models.CASCADE)
-    # phone_number = models.PositiveBigIntegerField(_('Phone Number'), unique=True, null=True, blank=True,
-    #                                               validators=[phone_nuber_validator],
-    #                                               error_messages={
-    #                                                   'unique': _("A user with this mobile number already exists."),
-    #                                               },
-    #                                               )
 
     @receiver(post_save, sender=MyUser)
     def _post_save_receiver(sender, instance, created, **kwargs):
